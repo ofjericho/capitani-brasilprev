@@ -32,6 +32,7 @@ git clone https://github.com/ofjericho/capitani-brasilprev.git
 
 Para criação do ambiente virtual:
 
+- entrar no diretório capitani-brasilprev
 - python -m venv .venv
 
 ### Instalação dos requisitos

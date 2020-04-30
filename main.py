@@ -3,7 +3,6 @@ import sys
 from search import context
 from bot import telegram
 
-
 '''
 # Desafio Python
 
@@ -53,13 +52,9 @@ def main():
             print(f'Link: {item["link"]}')
             print('')
 
-        # msg += '</body></html>'
-
-        res = telegram.BotHandler(TOKEN).send_message(
+        telegram.BotHandler(TOKEN).send_message(
             CHAT_ID,
             msg)
-
-        print(res)
 
 
 if __name__ == "__main__":

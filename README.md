@@ -39,7 +39,7 @@ Para criação do ambiente virtual:
 
 Para instalação dos requisitos 
 
-- pip install requirements.txt
+- pip install -r requirements.txt
 
 ### Executar a aplicação em linha de comando
 

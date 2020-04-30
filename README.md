@@ -25,23 +25,27 @@ com os links.
 ### Clone do projeto
 
 Realizar o clone do projeto 
-https://github.com/ofjericho/capitani-brasilprev.git
+
+git clone https://github.com/ofjericho/capitani-brasilprev.git
 
 ### Criação do ambiente virtual
 
 Para criação do ambiente virtual:
 
-python -m venv .venv
+- entrar no diretório capitani-brasilprev
+- python -m venv .venv
 
 ### Instalação dos requisitos
 
 Para instalação dos requisitos 
 
-pip install requirements.txt
+- pip install -r requirements.txt
 
-### Rodar a aplicação em linha de comando
+### Executar a aplicação em linha de comando
 
-python main.py
+Para executarmos a aplicação em linha de comando
+
+- python main.py
 
 ### Para utilização da aplicação
 

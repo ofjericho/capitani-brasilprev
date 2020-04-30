@@ -36,14 +36,14 @@ CHAT_ID = '522574697'
 def main():
     while True:
         research = input(
-            'Type your research in Stackoverflow: '
-            '(Press ctrl+c to exit) ')
+            'Digite o que deseja pesquisar no Stackoverflow: '
+            '(ctrl+c para sair) ')
 
         api = context.Stackoverflow()
 
         data_s = api.search(research)
 
-        msg = 'Looking for research for '.format(research)
+        msg = 'Sua pesquisa no Stackoverflow para {}'.format(research)
 
         for item in data_s["items"]:
 

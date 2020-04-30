@@ -26,7 +26,7 @@ com os links.
 
 Realizar o clone do projeto 
 
-https://github.com/ofjericho/capitani-brasilprev.git
+git clone https://github.com/ofjericho/capitani-brasilprev.git
 
 ### Criação do ambiente virtual
 

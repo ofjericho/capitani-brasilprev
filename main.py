@@ -17,6 +17,7 @@ def clear():
 
 
 def result_in_screen(keyword, question, score, link):
+    print('\n')
     print(f'Resultado de sua pesquisa no Stackoverflow para {keyword} : \n ')
     print(question)
     print(score)
@@ -36,16 +37,16 @@ def main():
 
         for item in data_s["items"]:
 
-            question = 'Pergunta: {} \n \n'.format(item["title"])
-            score = 'Votos: {} \n'.format(item["score"])
-            link = 'Resposta: {}\n'.format(item["link"])
+            question = 'Pergunta: {}'.format(item["title"])
+            score = 'Votos: {}'.format(item["score"])
+            link = 'Resposta: {}'.format(item["link"])
 
             research = 'Resultado de sua pesquisa no Stackoverflow para <b> {} </b> : \
-                        \n \n'.format(keyword)
+                        \n\n'.format(keyword)
 
-            research += question
-            research += score
-            research += link
+            research += question + '\n\n'
+            research += score + '\n'
+            research += link + '\n'
 
             telegram.BotHandler(TOKEN).send_message(
                 CHAT_ID,

@@ -4,31 +4,6 @@ import os
 from search import context
 from bot import telegram
 
-'''
-# Desafio Python
-
-O stackoverflow é um site de perguntas e respostas enviadas pelos usuários do
-site. Todos conhecemos. ;)
-
-A ideia do desafio é fazer um cliente que consuma a
-(api)[https://api.stackexchange.com/docs] do stackoverflow.
-
-
-# Entrada
-- Palavras chave para a pesquisa no stackoverflow
-
-# Parte 1
-
-Fazer uma interface em linha de comando que receba a pesquisa e imprima
-o titulo da pergunta, o número de votos e o link para a resposta.
-
-# Parte 2
-
-Fazer um robô no telegram que receba as suas pesquisas e te mostre as respotas
-com os links.
-'''
-
-# # Stackexchange
 
 TOKEN = '1231789684:AAEW4pZu6J-zFR53FJV2UxUujuSIZjqWbwk'
 CHAT_ID = '522574697'
@@ -41,31 +16,32 @@ def clear():
         os.system('clear')
 
 
+def result_in_screen(keyword, question, score, link):
+    print(f'Resultado de sua pesquisa no Stackoverflow para {keyword} : \n ')
+    print(question)
+    print(score)
+    print(link)
+
+
 def main():
 
     clear()
 
     while True:
         keyword = input(
-            'Digite o que deseja pesquisar no Stackoverflow '
-            '(ctrl+c para sair): ')
+            '\n O que deseja pesquisar no Stackoverflow ? '
+            '( Crtl+c para sair ): ')
 
         data_s = context.Stackoverflow().search(keyword)
 
         for item in data_s["items"]:
 
-            question = 'Pergunta: {} \n'.format(item["title"])
+            question = 'Pergunta: {} \n \n'.format(item["title"])
             score = 'Votos: {} \n'.format(item["score"])
             link = 'Resposta: {}\n'.format(item["link"])
 
-            research = 'Sua pesquisa no Stackoverflow para {} \n'\
-                .format(keyword)
-
-            print(research)
-            print(question)
-            print(score)
-            print(link)
-            print('')
+            research = 'Resultado de sua pesquisa no Stackoverflow para <b> {} </b> : \
+                        \n \n'.format(keyword)
 
             research += question
             research += score
@@ -76,6 +52,8 @@ def main():
                 research)
 
             research = ''
+
+            result_in_screen(keyword, question, score, link)
 
 
 if __name__ == "__main__":

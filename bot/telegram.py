@@ -11,15 +11,16 @@ class BotHandler:
     def get_updates(self, offset=0, timeout=30):
         method = 'getUpdates'
         params = {'timeout': timeout, 'offset': offset}
-        resp = req.get(self.api_url + method, params)
-        result_json = resp.json()['result']
+        res = req.get(self.api_url + method, params)
+        result_json = res.json()['result']
         return result_json
 
     def send_message(self, chat_id, text):
-        params = {'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML'}
+        params = {'chat_id': chat_id,
+                  'text': text, 'parse_mode': 'HTML'}
         method = 'sendMessage'
-        resp = req.post(self.api_url + method, params)
-        return resp
+        res = req.post(self.api_url + method, params)
+        return res
 
     def get_first_update(self):
         get_result = self.get_updates()

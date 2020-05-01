@@ -1,5 +1,6 @@
 # -*- coding: UTF8 -*-
 import sys
+import os
 from search import context
 from bot import telegram
 
@@ -33,28 +34,48 @@ TOKEN = '1231789684:AAEW4pZu6J-zFR53FJV2UxUujuSIZjqWbwk'
 CHAT_ID = '522574697'
 
 
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
 def main():
+
+    clear()
+
     while True:
-        research = input(
-            'Digite o que deseja pesquisar no Stackoverflow: '
-            '(ctrl+c para sair) ')
+        keyword = input(
+            'Digite o que deseja pesquisar no Stackoverflow '
+            '(ctrl+c para sair): ')
 
-        api = context.Stackoverflow()
-
-        data_s = api.search(research)
-
-        msg = 'Sua pesquisa no Stackoverflow para {}'.format(research)
+        data_s = context.Stackoverflow().search(keyword)
 
         for item in data_s["items"]:
 
-            print(f'Question: {item["title"]}')
-            print(f'Score: {item["score"]}')
-            print(f'Link: {item["link"]}')
+            question = 'Pergunta: {} \n'.format(item["title"])
+            score = 'Votos: {} \n'.format(item["score"])
+            link = 'Resposta: {}\n'.format(item["link"])
+
+            research = 'Sua pesquisa no Stackoverflow para {} \n'\
+                .format(keyword)
+
+            print(research)
+            print(question)
+            print(score)
+            print(link)
             print('')
 
-        telegram.BotHandler(TOKEN).send_message(
-            CHAT_ID,
-            msg)
+            research += question
+            research += score
+            research += link
+
+            telegram.BotHandler(TOKEN).send_message(
+                CHAT_ID,
+                research)
+
+            research = ''
 
 
 if __name__ == "__main__":

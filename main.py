@@ -2,11 +2,7 @@
 import sys
 import os
 from search import context
-from bot import telegram
-
-
-TOKEN = '1231789684:AAEW4pZu6J-zFR53FJV2UxUujuSIZjqWbwk'
-CHAT_ID = '522574697'
+from bot import chatbot
 
 
 def clear():
@@ -48,11 +44,14 @@ def main():
             research += score + '\n'
             research += link + '\n'
 
-            telegram.BotHandler(TOKEN).send_message(
-                CHAT_ID,
-                research)
+            # Send a message to Telegram
+
+            bot = chatbot.Telegram()
+            bot.send_message(research)
 
             research = ''
+
+            # Print a research on screen
 
             result_in_screen(keyword, question, score, link)
 

@@ -10,4 +10,4 @@ class Settings:
 
     # Stackoverflow
 
-    os.environ['API_STACKOVERFLOW'] = 'https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&site=stackoverflow'
+    os.environ['API_STACKOVERFLOW'] = 'https://api.stackexchange.com/2.2/search/advanced?order=desc&sort=votes&site=stackoverflow'

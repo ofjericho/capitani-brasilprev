@@ -1,29 +1,14 @@
 # -*- coding: UTF8 -*-
 import sys
-import os
+import asyncio
 from search import context
 from bot import chatbot
-import asyncio
-
-
-def clear():
-    if os.name == 'nt':
-        os.system('cls')
-    else:
-        os.system('clear')
-
-
-def result_in_screen(keyword, question, score, link):
-    print('\n')
-    print(f'Resultado de sua pesquisa no Stackoverflow para {keyword} : \n ')
-    print(question)
-    print(score)
-    print(link)
+import util
 
 
 def main():
 
-    clear()
+    util.clear()
 
     while True:
         keyword = input(
@@ -54,7 +39,7 @@ def main():
 
             # Print a research on screen
 
-            result_in_screen(keyword, question, score, link)
+            util.result_in_screen(keyword, question, score, link)
 
 
 if __name__ == "__main__":

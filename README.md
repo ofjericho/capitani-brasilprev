@@ -34,6 +34,7 @@ Para criação do ambiente virtual:
 
 - entrar no diretório capitani-brasilprev
 - python -m venv .venv
+- ativar do ambiente virtual
 
 ### Instalação dos requisitos
 

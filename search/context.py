@@ -1,16 +1,22 @@
 import requests as req
-import json
+import settings
+import aiohttp
 
 
 class Stackoverflow:
 
-    def search(self, context):
+    def search(self, filter):
 
-        res = req.get('https://api.stackexchange.com/'
-                      '/2.2/search/advanced?order=desc&sort=activity'
-                      '&site=stackoverflow'
-                      '&title={}'.format(context))
+        res = req.get(settings.os.environ['API_STACKOVERFLOW'] +
+                      '&title={}'.format(filter))
 
-        data_s = json.loads(res.text)
+        data = res.json()
+        return data
 
-        return data_s
+    async def search_async(self, filter):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(settings.os.environ['API_STACKOVERFLOW'] +
+                                   '&title={}'.format(filter)) as res:
+
+                data = await res.json()
+                return data

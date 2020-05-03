@@ -3,6 +3,7 @@ import sys
 import os
 from search import context
 from bot import chatbot
+import asyncio
 
 
 def clear():
@@ -29,9 +30,9 @@ def main():
             '\n O que deseja pesquisar no Stackoverflow ? '
             '( Crtl+c para sair ): ')
 
-        data_s = context.Stackoverflow().search(keyword)
+        result = asyncio.run(context.Stackoverflow().search_async(keyword))
 
-        for item in data_s["items"]:
+        for item in result["items"]:
 
             question = 'Pergunta: {}'.format(item["title"])
             score = 'Votos: {}'.format(item["score"])

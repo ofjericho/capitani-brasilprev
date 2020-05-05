@@ -1,6 +1,6 @@
 # -*- coding: UTF8 -*-
 import sys
-import cd
+import asyncio
 from search import context
 from bot import chatbot
 import util

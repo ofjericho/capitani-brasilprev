@@ -52,5 +52,5 @@ Para executarmos a aplicação em linha de comando
 
 - Digitar a palavra chave ou texto para busca no Stackoverflow
 - Serão listado questões relativo à busca desejada com o score e o link para as respostas
-- Será enviado nesse momento um alerta para o Telegran sobre a consulta realizada
+- Será enviado nesse momento a consulta realizada para o chatbot no Telegram chamado MagicStack
 

@@ -1,4 +1,4 @@
-# Desafio Python
+# Problema
 
 O stackoverflow é um site de perguntas e respostas enviadas pelos usuários do
 site. Todos conhecemos. ;)
@@ -20,7 +20,7 @@ Fazer um robô no telegram que receba as suas pesquisas e te mostre as respotas
 com os links.
 
 
-# Resolução
+# Possível resolução
 
 ### Clone do projeto
 
